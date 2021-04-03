@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Comprehension" />
+    <orderEntry type="module" module-name="Multidimensional_Lists" />
+    <orderEntry type="module" module-name="Functions_Advanced" />
+    <orderEntry type="module" module-name="File_Handling" />
+    <orderEntry type="module" module-name="Tuples_and_Sets" />
+    <orderEntry type="module" module-name="Exam_Dec_2020" />
+    <orderEntry type="module" module-name="Exam_Oct_2020" />
+    <orderEntry type="module" module-name="Error_handling" />
+    <orderEntry type="module" module-name="Exam_Aug_2020" />
+    <orderEntry type="module" module-name="Exam_2021" />
+    <orderEntry type="module" module-name="Exam_June_2020" />
+    <orderEntry type="module" module-name="Polymorphism_and_Magic_Methods" />
+    <orderEntry type="module" module-name="Iterators_Generators" />
+    <orderEntry type="module" module-name="Decorators" />
+    <orderEntry type="module" module-name="Testing" />
+  </component>
+</module>

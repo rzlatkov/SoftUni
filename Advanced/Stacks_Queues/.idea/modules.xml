@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Comprehension/.idea/Comprehension.iml" filepath="$PROJECT_DIR$/../Comprehension/.idea/Comprehension.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../OOP/Decorators/.idea/Decorators.iml" filepath="$PROJECT_DIR$/../../OOP/Decorators/.idea/Decorators.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Error_handling/.idea/Error_handling.iml" filepath="$PROJECT_DIR$/../Error_handling/.idea/Error_handling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Exam_2021/.idea/Exam_2021.iml" filepath="$PROJECT_DIR$/../Exam_2021/.idea/Exam_2021.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Exam_Aug_2020/.idea/Exam_Aug_2020.iml" filepath="$PROJECT_DIR$/../Exam_Aug_2020/.idea/Exam_Aug_2020.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Exam_Dec_2020/.idea/Exam_Dec_2020.iml" filepath="$PROJECT_DIR$/../Exam_Dec_2020/.idea/Exam_Dec_2020.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Exam_June_2020/.idea/Exam_June_2020.iml" filepath="$PROJECT_DIR$/../Exam_June_2020/.idea/Exam_June_2020.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Exam_Oct_2020/.idea/Exam_Oct_2020.iml" filepath="$PROJECT_DIR$/../Exam_Oct_2020/.idea/Exam_Oct_2020.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../File_Handling/.idea/File_Handling.iml" filepath="$PROJECT_DIR$/../File_Handling/.idea/File_Handling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Functions_Advanced/.idea/Functions_Advanced.iml" filepath="$PROJECT_DIR$/../Functions_Advanced/.idea/Functions_Advanced.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../OOP/Iterators_Generators/.idea/Iterators_Generators.iml" filepath="$PROJECT_DIR$/../../OOP/Iterators_Generators/.idea/Iterators_Generators.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Multidimensional_Lists/.idea/Multidimensional_Lists.iml" filepath="$PROJECT_DIR$/../Multidimensional_Lists/.idea/Multidimensional_Lists.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../OOP/Polymorphism_and_Magic_Methods/.idea/Polymorphism_and_Magic_Methods.iml" filepath="$PROJECT_DIR$/../../OOP/Polymorphism_and_Magic_Methods/.idea/Polymorphism_and_Magic_Methods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Stacks_Queues.iml" filepath="$PROJECT_DIR$/.idea/Stacks_Queues.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../OOP/Testing/.idea/Testing.iml" filepath="$PROJECT_DIR$/../../OOP/Testing/.idea/Testing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Tuples_and_Sets/.idea/Tuples_and_Sets.iml" filepath="$PROJECT_DIR$/../Tuples_and_Sets/.idea/Tuples_and_Sets.iml" />
+    </modules>
+  </component>
+</project>
