@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../Attributes_and_Methods/.idea/Attributes_and_Methods.iml" filepath="$PROJECT_DIR$/../Attributes_and_Methods/.idea/Attributes_and_Methods.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Classes_and_Instances/.idea/Classes_and_Instances.iml" filepath="$PROJECT_DIR$/../Classes_and_Instances/.idea/Classes_and_Instances.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Decorators/.idea/Decorators.iml" filepath="$PROJECT_DIR$/../Decorators/.idea/Decorators.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Defining_Classes/.idea/Defining_Classes.iml" filepath="$PROJECT_DIR$/../Defining_Classes/.idea/Defining_Classes.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Encapsulation/.idea/Encapsulation.iml" filepath="$PROJECT_DIR$/../Encapsulation/.idea/Encapsulation.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Testing.iml" filepath="$PROJECT_DIR$/.idea/Testing.iml" />
