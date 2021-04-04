@@ -11,5 +11,6 @@
     <orderEntry type="module" module-name="Attributes_and_Methods" />
     <orderEntry type="module" module-name="Encapsulation" />
     <orderEntry type="module" module-name="Decorators" />
+    <orderEntry type="module" module-name="Iterators_Generators" />
   </component>
 </module>
