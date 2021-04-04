@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/student" isTestSource="false" />
-    </content>
+    <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="Python 3.9 (test)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Defining_Classes" />
@@ -12,5 +10,6 @@
     <orderEntry type="module" module-name="Encapsulation" />
     <orderEntry type="module" module-name="Decorators" />
     <orderEntry type="module" module-name="Iterators_Generators" />
+    <orderEntry type="module" module-name="Inheritance" />
   </component>
 </module>
