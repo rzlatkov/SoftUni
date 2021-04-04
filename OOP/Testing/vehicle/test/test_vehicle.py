@@ -1,4 +1,4 @@
-from project.vehicle import Vehicle
+from vehicle.project.vehicle import Vehicle
 import unittest
 
 
