@@ -7,5 +7,6 @@
     <orderEntry type="jdk" jdkName="Python 3.9 (test)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Defining_Classes" />
+    <orderEntry type="module" module-name="Classes_and_Instances" />
   </component>
 </module>
