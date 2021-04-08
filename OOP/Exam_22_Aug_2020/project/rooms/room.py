@@ -4,17 +4,17 @@ class Room:
         self.budget = budget
         self.members_count = members_count
         self.children = []
-        self._expenses = None
+        self.expenses = 0
 
     @property
     def expenses(self):
-        return self._expenses
+        return self.__expenses
 
     @expenses.setter
     def expenses(self, value):
         if value < 0:
             raise ValueError('Expenses cannot be negative')
-        self._expenses = value
+        self.__expenses = value
 
     def calculate_expenses(self, *args):
         total = 0
