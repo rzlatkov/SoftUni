@@ -1,0 +1,80 @@
+{% load static %}
+
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- edit below -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Expenses Tracker</title>
+</head>
+
+<body>
+    
+<nav>
+    <ul>
+         <!-- edit below -->
+        <li class="img"><img src="{% static 'images/dollar.png' %}"></li>
+         <!-- edit below -->
+        <li><a href="{% url 'home-page' %}">Expenses Tracker</a></li>
+         <!-- edit below -->
+        <li class="right"><a href="{% url 'profile' %}">Profile</a></li>
+        
+    </ul>
+</nav>
+    <div class="body">
+        
+
+
+{% if not expenses %}
+<h1>My Expenses</h1>
+ <!-- edit below -->
+<a class="button" href="{% url 'create-expense' %}">Add Expense</a>
+{% else %}
+
+<div>
+    <h1>Summary</h1><h1>
+         <!-- edit below -->
+    <ul class="expenses-list">
+    <li class="blue">{{profile.budget}}$</li>
+    {% for expense in expenses %}
+        <li class="red"> - {{expense.price}}$</li>
+    {% endfor %}
+    <li class="green">= {{ profile.budget_left }}$ left</li>
+
+    </ul>
+</h1></div>
+
+<h1>My Expenses</h1>
+<!-- edit below -->
+<a class="button" href="{% url 'create-expense' %}">Add Expense</a>
+
+<div class="expenses-container">
+    {% for expense in expenses %}
+    <div class="expense-container">
+        <h2>{{expense.title}}</h2>
+        <hr>
+        <img src="{{expense.image_url}}">
+        <p>{{expense.description}}</p>
+        <div class="expense-detail">
+            <div>
+                <p>Price: {{expense.price}}$</p>
+            </div>
+            <div class="right">
+                <!-- edit below -->
+                <a class="button edit" href="{% url 'edit-expense' expense.pk %}">Edit</a>
+                <!-- edit below -->
+                <a class="button delete" href="{% url 'delete-expense' expense.pk %}">Delete</a>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+{% endif%}
+    
+</div>
+    </div>
+    <footer>
+    <div>Python Web Basics Exam Preparation @SoftUni</div>
+</footer>
+
+
+</body></html>

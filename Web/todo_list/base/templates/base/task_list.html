@@ -1,0 +1,86 @@
+<!-- 
+	TaskList view operates with the 'Task' model. One of the model's fields is 'user.'
+	The 'user' fields has a One2Many relation with the django User model.
+	By default django is using 'sessions' to register logged-in users. 
+	Right click > inspect > application > cookies.
+	In the cookies directory there will be a session for the current logged-in user.
+	The 'request.user' is a attribute of the request object which represents the current user.
+	Request obj is always passed to the template by django. 
+-->
+<!--
+	Inherit main.html template 
+ -->
+
+{% extends 'base/main.html' %}
+{% block content%}
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<div class='header-bar'>
+	<div >
+		<h1>Hello {{ request.user|title }}</h1>
+		<h3 style='margin:0'>You have <i>{{ count }}</i> incomplete task{{count|pluralize:"s"}}</h3>
+	</div>
+	{% if request.user.is_authenticated %}
+	<!-- <p>{{ request.user }}</p> -->
+		<a href="{% url 'logout' %}">Logout</a>
+	{% else %}
+		<a href="{% url 'login' %}">Login</a>
+	{% endif %}
+</div>
+	
+<div id='search-add-wrapper'>
+	<form method="GET" style='margin-top: 20px; display: flex;'>
+		<input type='text' name='search-area' value='{{ search_input }}'>
+		<input class='button' type='submit' value='Search'>
+	</form>
+	<a id='add-link'href="{% url 'task-create' %}">&#x2b;</a>
+</div>
+
+<div class='task-items-wrapper'>
+	{% for task in tasks%}
+	<div class='task-wrapper'>
+		{% if task.complete %}
+		<div class='task-title'>
+			<div class='task-complete-icon'></div>
+			<i><s><a href="{% url 'task-update' task.id %}">{{ task }}</a></s></i>
+		</div>
+		{% else %}
+			<div class='task-title'>
+				<div class='task-incomplete-icon'></div>
+				<a href="{% url 'task-update' task.id %}">{{ task }}</a>
+			</div>
+		<a class='delete-link' href="{% url 'task-delete' task.id %}">&#215;</a>
+		<!-- <span class="handle">&nbsp;&#10247;</span> -->
+		{% endif %}
+		</div>		
+	{% empty %}	
+		<h3>No items in list</h3>
+	{% endfor %}
+</div>
+
+
+<!-- <hr>
+<h1>My To Do List</h1> -->
+
+
+
+
+<!-- <table>
+	<tr>
+		<th>Item</th>
+		<th></th>
+		<th></th>
+	</tr>
+	{% for task in tasks%}
+	<tr>
+		<td>{{task.title}}</td>
+		<td><a href="{% url 'task' task.id %}">View</a></td>
+		<td><a href="{% url 'task-update' task.id %}">Edit</a></td>
+		<td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+	</tr>
+	{% empty %}
+		<h3>No items in list</h3>
+	{% endfor %}
+</table> -->
+{% endblock%}
+

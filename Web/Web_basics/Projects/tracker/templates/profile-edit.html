@@ -1,0 +1,54 @@
+{% load static %}
+
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- edit below -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Expenses Tracker</title>
+</head>
+
+<body>
+    
+<nav>
+    <ul>
+         <!-- edit below -->
+        <li class="img"><img src="{% static 'images/dollar.png' %}"></li>
+         <!-- edit below -->
+        <li><a href="{% url 'home-page' %}">Expenses Tracker</a></li>
+        <!-- edit below -->
+        <li class="right"><a href="{% url 'profile' %}">Profile</a></li>
+        
+    </ul>
+</nav>
+    <div class="body">
+        
+<h1>Enter your new data</h1>
+<div class="form">
+    <form method="POST">
+        <!-- remove hardcoded html form inputs and place the user-created modelForm & the csrf_token -->
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <!-- <input type="hidden" name="csrfmiddlewaretoken" value="M6BlBJtidtTAjIVkeKKrO0pzGsJVBeMuJUjjBOd11b8tiULJ0qeyFSClYJH4npVf">
+        <label for="budget">Budget</label>
+        <input type="number" name="budget" value="1500" required="" id="id_budget">
+
+        <label for="firstName">First Name</label>
+        <input type="text" name="first_name" value="Tanya" maxlength="15" required="" id="id_first_name">
+
+        <label for="lastName">Last Name</label>
+        <input type="text" name="last_name" value="Staneva" maxlength="15" required="" id="id_last_name"> -->
+
+        <input type="submit" value="Edit">
+    </form>
+</div>
+
+    </div>
+    <footer>
+    <div>Python Web Basics Exam Preparation @SoftUni</div>
+</footer>
+
+
+</body></html>

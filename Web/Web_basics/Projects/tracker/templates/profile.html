@@ -1,0 +1,55 @@
+{% load static %}
+
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- edit below -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Expenses Tracker</title>
+</head>
+
+<body>
+    
+<nav>
+    <ul>
+        <!-- edit below -->
+        <li class="img"><img src="{% static 'images/dollar.png' %}"></li>
+         <!-- edit below -->
+        <li><a href="{% url 'home-page' %}">Expenses Tracker</a></li>
+        <!-- edit below -->
+        <li class="right"><a href="{% url 'profile' %}">Profile</a></li>
+        
+    </ul>
+</nav>
+    <div class="body">
+        
+<h1>Your Profile</h1>
+<div class="expenses-container">
+    <div class="expense-container">
+        <!-- edit below -->
+        <h2>{{profile.first_name}} {{profile.last_name}}</h2>
+        <hr>
+        <!-- edit below -->
+        <img src="{% static 'images/user.png' %}">
+        <p>In your profile you can edit your profile data</p>
+        <div class="expense-detail">
+            <div>
+                <p>Budget Left: {{profile.budget_left}}$</p>
+            </div>
+            <div class="right">
+                 <!-- edit below -->
+                <a class="button edit" href="{% url 'edit-profile' %}">Edit Profile</a>
+                 <!-- edit below -->
+                <a class="button delete" href="{% url 'delete-profile' %}">Delete Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <footer>
+    <div>Python Web Basics Exam Preparation @SoftUni</div>
+</footer>
+
+
+</body></html>
