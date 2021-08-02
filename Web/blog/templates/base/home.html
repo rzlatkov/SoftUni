@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <h1>Posts</h1>
+    <ul>
+        {% for post in object_list %}
+            <li><a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a> - {{ post.author.username }} - {{ post.author.email }}</li>
+            {{ post.content }}
+            <br>
+            Categories:
+            {% for cat in post.category.all %}
+                {{ cat }}/
+            {% endfor %}
+            <br>
+            Date published: {{ post.date_published }}
+            <a href="{% url 'post-edit' post.pk %}">Edit</a>
+            <a href="{% url 'post-delete' post.pk %}">Delete</a>
+        {% endfor %}
+    </ul>
+{% endblock %}
