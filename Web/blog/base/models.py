@@ -42,6 +42,8 @@ class Post(models.Model):
         # return self.title + ' by ' + self.author.username
         return self.title
 
+    # get_abs_url returns a link pointing to an obj instance
+    # {% url 'post-detail' obj.pk %} == {{ obj.get_absolute_url }}
     def get_absolute_url(self):
         return reverse('post-detail', args=[str(self.pk)])
 

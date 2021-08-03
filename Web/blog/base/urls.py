@@ -1,5 +1,14 @@
 from django.urls import path
-from .views import HomeView, PostView, AddPostView, UpdatePostView, DeletePostView
+from .views import (
+    HomeView,
+    PostView,
+    AddPostView,
+    UpdatePostView,
+    DeletePostView,
+    CategoryListView,
+    category_detail_view,
+    category_add_view,
+    )
 
 # django ULR resolver expects to send the req and args to a function, not a class.
 # if CBV used, add as_view() which returns a function that can be called upon a request.
@@ -14,4 +23,7 @@ urlpatterns = [
     path('add-post/', AddPostView.as_view(), name='post-add'),
     path('post/edit/<int:pk>', UpdatePostView.as_view(), name='post-edit'),
     path('post/delete/<int:pk>', DeletePostView.as_view(), name='post-delete'),
+    path('categories', CategoryListView.as_view(), name='category-list'),
+    path('category/<str:cat>', category_detail_view, name='category-detail'),
+    path('add-category/', category_add_view, name='category-add'),
 ]

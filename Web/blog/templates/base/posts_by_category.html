@@ -1,26 +1,22 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-    Home
+    {{ cat }}
 {% endblock %}
 
 {% block content %}
-    <h1>Posts</h1>
+    <h1>Posts related to {{ cat }}</h1>
     <ul>
-        {% for post in object_list %}
+        {% for post in posts_by_cat %}
             <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> - {{ post.author.username }} - {{ post.author.email }}</li>
             {{ post.content|slice:':100'|safe }}
             <br>
             Categories:
             {% for cat in post.category.all %}
-                <a href="{% url 'category-detail' cat.name %}">{{ cat }}/</a>
+                {{ cat }}/
             {% endfor %}
             <br>
             Date published: {{ post.date_published }}
-            {% if user.is_authenticated %}
-            <a href="{% url 'post-edit' post.pk %}">Edit</a>
-            <a href="{% url 'post-delete' post.pk %}">Delete</a>
-            {% endif %}
         {% endfor %}
     </ul>
 {% endblock %}

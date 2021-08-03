@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Post, Category
 
 
 class PostForm(forms.ModelForm):
@@ -25,3 +25,16 @@ class UpdatePostForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'class': 'form-control'}),
             'category': forms.SelectMultiple(attrs={'class': 'form-control'}),
         }
+
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ('name',)
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+    def clean_name(self):
+        return self.cleaned_data['name'].capitalize()

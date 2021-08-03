@@ -1,20 +1,21 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-    Delete {{ post.title }}?
+    Add Category
 {% endblock %}
 
 {% block content %}
     {% if user.is_authenticated %}
-    <h1>Delete Post: {{ post.title }}???</h1>
+    <h1>Add Category:</h1>
     <br>
     <form method="POST">
         <div class="form-group">
             {% csrf_token %}
-            <button class="btn btn-danger">Delete</button>
+            {{ form.as_p }}
+            <button class="btn btn-success">Add</button>
         </div>
     </form>
     {% else %}
-    You are not logged in. You don't have the permissions to delete a post.
+    You are not logged in. You don't have the permissions to add a category.
     {% endif %}
 {% endblock %}
