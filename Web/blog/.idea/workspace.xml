@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41558cc9-9eb0-4a91-8d9f-f97dbf2947aa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/base/migrations/0002_alter_category_name.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/base/migrations/0003_alter_category_name.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/models.py" afterDir="false" />
@@ -84,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1627415682388</updated>
       <workItem from="1627415683859" duration="12000" />
-      <workItem from="1627415707180" duration="70444000" />
+      <workItem from="1627415707180" duration="70967000" />
     </task>
     <servers />
   </component>
