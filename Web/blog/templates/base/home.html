@@ -13,7 +13,7 @@
             <br>
             Categories:
             {% for cat in post.category.all %}
-                <a href="{% url 'category-detail' cat.name %}">{{ cat }}/</a>
+                <a href="{% url 'category-detail' cat.name|slugify %}">{{ cat.name }}/</a>
             {% endfor %}
             <br>
             Date published: {{ post.date_published }}

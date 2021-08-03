@@ -12,7 +12,7 @@
     </h1>
     <ul>
         {% for category in object_list %}
-            <li><a href="{% url 'category-detail' category.name %}">{{ category.name }}</a></li>
+            <li><a href="{% url 'category-detail' category.name|slugify %}">{{ category.name }}</a></li>
             Posts count: {{ category.post_set.count }}
         {% endfor %}
     </ul>

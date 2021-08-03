@@ -3,12 +3,15 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from django.urls import reverse
+from django.core.validators import RegexValidator
 # slugify turns our post title into a slug
 from django.utils.text import slugify
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=255, unique=True)
+    alphanumeric = RegexValidator(r'^[0-9a-zA-Z ]*$', 'Only alphanumeric characters are allowed.')
+
+    name = models.CharField(max_length=255, unique=True, validators=[alphanumeric])
 
     class Meta:
         verbose_name = 'Category'  # the name of the model class in the admin list section.

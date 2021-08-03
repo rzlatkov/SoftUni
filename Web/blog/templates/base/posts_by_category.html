@@ -6,6 +6,7 @@
 
 {% block content %}
     <h1>Posts related to {{ cat }}</h1>
+    {% if posts_by_cat %}
     <ul>
         {% for post in posts_by_cat %}
             <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> - {{ post.author.username }} - {{ post.author.email }}</li>
@@ -19,4 +20,7 @@
             Date published: {{ post.date_published }}
         {% endfor %}
     </ul>
+    {% else %}
+        No posts yet. Click <a href="{% url 'post-add' %}">here</a> to add one.
+    {% endif %}
 {% endblock %}

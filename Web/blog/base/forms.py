@@ -37,4 +37,4 @@ class CategoryForm(forms.ModelForm):
         }
 
     def clean_name(self):
-        return self.cleaned_data['name'].capitalize()
+        return self.cleaned_data['name'].lower().capitalize()

@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 
 
 def category_detail_view(request, cat):
+    cat = cat.capitalize().replace('-', ' ')
     posts_by_cat = Post.objects.filter(category__name=cat)
     context = {'posts_by_cat': posts_by_cat, 'cat': cat}
     return render(request, 'base/posts_by_category.html', context)
