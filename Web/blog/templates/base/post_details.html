@@ -12,9 +12,51 @@
     {{ post.content|safe }}
     <br/>
     <br/>
+    <hr>
     <a href="{% url 'home' %}" class="btn btn-secondary">Go to Home</a>
     {% if user.is_authenticated %}
     <a href="{% url 'post-edit' post.pk %}" class="btn btn-warning">Edit</a>
     <a href="{% url 'post-delete' post.pk %}" class="btn btn-danger">Delete</a>
+    <br>
+    <br>
+        <form action="{% url 'post-like' post.pk %}" method="POST">
+            {% csrf_token %}
+            {% if not liked %}
+            <button type="submit" name="post_like_button" value="{{ post.pk }}" class="btn btn-primary btn-sm">
+                Like
+            </button>
+                {% else %}
+            <button type="submit" name="post_like_button" value="{{ post.pk }}" class="btn btn-danger btn-sm">
+                UnLike
+            </button>
+                {% endif %}
+                - {{ likes }}
+        </form>
+    <hr>
+    Comments: <a href="{% url 'comment-add' post.pk %}" class="btn btn-success">Add</a>
+    {% else %}
+    <br>
+    <br>
+    Comments:
+    <br>
+    {% endif %}
+    <hr>
+    {% if not post.comments.all %}
+    Nothing...
+    {% else %}
+        {% for comment in post.comments.all %}
+            <strong>
+                <br>
+                From: {{ comment.name }}
+                <br>
+                <small>
+                Published: {{ comment.date_published }}
+                Modified: {{ comment.date_modified }}
+                </small>
+            </strong>
+            <br>
+            {{ comment.content }}
+            <br>
+        {% endfor %}
     {% endif %}
 {% endblock %}

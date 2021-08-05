@@ -1,11 +1,14 @@
 {% extends 'base/base.html' %}
 
+{% load static %}
+
 {% block title %}
     Home
 {% endblock %}
 
 {% block content %}
     <h1>Posts</h1>
+
     <ul>
         {% for post in object_list %}
             <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> - {{ post.author.username }} - {{ post.author.email }}</li>
@@ -17,10 +20,15 @@
             {% endfor %}
             <br>
             Date published: {{ post.date_published }}
+
             {% if user.is_authenticated %}
+
             <a href="{% url 'post-edit' post.pk %}">Edit</a>
             <a href="{% url 'post-delete' post.pk %}">Delete</a>
+
             {% endif %}
+            <hr>
         {% endfor %}
     </ul>
 {% endblock %}
+

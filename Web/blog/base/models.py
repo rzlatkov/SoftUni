@@ -32,17 +32,19 @@ class Post(models.Model):
     date_published = models.DateTimeField(auto_now_add=True)
     # category = models.CharField(max_length=255, default='no category')
     category = models.ManyToManyField(Category, help_text='Select a category for this post.')
+    likes = models.ManyToManyField(User, related_name='blog_likes')
     # slug = models.SlugField(max_length=250, unique=True)
 
     # TODO:
     # date_created
     # date_updated
-
     # published (boolean)
     # tags
 
+    def likes_count(self):
+        return self.likes.count()
+
     def __str__(self):
-        # return self.title + ' by ' + self.author.username
         return self.title
 
     # get_abs_url returns a link pointing to an obj instance
@@ -52,9 +54,10 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    author = models.ForeignKey(User, on_delete=models.PROTECT)
+    author = models.ForeignKey(User, related_name='comments', on_delete=models.PROTECT)
+    name = models.CharField(max_length=55)
     content = models.TextField()
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
     date_published = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 
@@ -97,6 +100,7 @@ class Profile(models.Model):
 
     # TODO:
     # profile_picture
+    # facebook/insta/tweeter/Github urls required=False
 
     def __str__(self):
         return self.user.username

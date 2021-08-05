@@ -7,13 +7,15 @@
 {% block content %}
     <h1>Categories
         {% if user.is_authenticated %}
-        <small><a href="{% url 'category-add' %}">Click here to add.</a></small>
+        <small><a href="{% url 'category-add' %}" class="btn btn-success">Click here to add.</a></small>
         {% endif %}
+    <hr>
     </h1>
     <ul>
         {% for category in object_list %}
             <li><a href="{% url 'category-detail' category.name|slugify %}">{{ category.name }}</a></li>
             Posts count: {{ category.post_set.count }}
+            <hr>
         {% endfor %}
     </ul>
 {% endblock %}

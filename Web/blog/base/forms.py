@@ -1,21 +1,8 @@
 from django import forms
-from .models import Post, Category
+from .models import Post, Category, Comment
 
 
 class PostForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = ['title', 'author', 'content', 'category']
-
-        widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'author': forms.Select(attrs={'class': 'form-control'}),
-            'content': forms.Textarea(attrs={'class': 'form-control'}),
-            'category': forms.SelectMultiple(attrs={'class': 'form-control'}),
-        }
-
-
-class UpdatePostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'content', 'category']
@@ -38,3 +25,14 @@ class CategoryForm(forms.ModelForm):
 
     def clean_name(self):
         return self.cleaned_data['name'].lower().capitalize()
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name', 'content',)
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'content': forms.Textarea(attrs={'class': 'form-control'}),
+        }
