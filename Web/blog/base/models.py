@@ -4,6 +4,7 @@ from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from django.urls import reverse
 from django.core.validators import RegexValidator
+from ckeditor.fields import RichTextField
 # slugify turns our post title into a slug
 from django.utils.text import slugify
 
@@ -26,13 +27,14 @@ class Post(models.Model):
     # many-2-one relationship where post = one and user = many. Place FK in the 'many' model.
     # default reverse relationship by user.post_set
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.TextField()
+    content = RichTextField(blank=True, null=True)
     # auto_now_add sets the date when the post is created. It cannot be overridden.
     # auto_now sets the date every time the obj is updated/saved. It cannot be overridden.
     date_published = models.DateTimeField(auto_now_add=True)
     # category = models.CharField(max_length=255, default='no category')
     category = models.ManyToManyField(Category, help_text='Select a category for this post.')
-    likes = models.ManyToManyField(User, related_name='blog_likes')
+    likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
+    snippet = models.CharField(max_length=255)
     # slug = models.SlugField(max_length=250, unique=True)
 
     # TODO:
