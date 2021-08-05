@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block content %}
+    Username: {{ profile.user.username }}
+    <hr>
+    Email: {{ profile.user.email }}
+    <hr>
+    Full name: {{ profile.user.first_name }} {{ profile.user.last_name }}
+    <hr>
+    Location: {{ profile.location }}
+    <hr>
+    Date of birth: {{ profile.birth_date }}
+    <hr>
+    Bio: {{ profile.bio }}
+    <hr>
+
+
+    <br><br><a href="{% url 'home' %}" class="btn btn-secondary">Go to Home</a>
+    <a href="{% url 'profile-edit' user.pk %}" class="btn btn-warning">Edit Profile</a>
+
+
+{% endblock %}
