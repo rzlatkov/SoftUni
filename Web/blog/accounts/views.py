@@ -2,11 +2,11 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic import DetailView, UpdateView
 from base.models import Profile
-from .forms import CreateUserForm, LoginUserForm
+from .forms import CreateUserForm, LoginUserForm, PasswordChangeFormBootstrap
 from base.forms import ProfileForm
 from django.contrib import messages
-from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate, logout, update_session_auth_hash
+# from django.contrib.auth.forms import PasswordChangeForm
 
 
 def register_view(request):
@@ -49,6 +49,25 @@ def logout_view(request):
     logout(request)
     messages.info(request, 'You are logged out.')
     return redirect('home')
+
+
+def change_password_view(request):
+    if request.method == "POST":
+        form = PasswordChangeFormBootstrap(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            # update session hash is used to after save() so that user's session won't be invalidated.
+            # if invalidated, the user will be logged out upon pass change.
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Password changed successfully!')
+            return redirect('pass-change')
+        else:
+            messages.error(request, 'Invalid input data.')
+    else:
+        form = PasswordChangeFormBootstrap(request.user)
+
+    context = {'form': form}
+    return render(request, 'registration/change_password.html', context)
 
 
 class ProfileView(DetailView):
