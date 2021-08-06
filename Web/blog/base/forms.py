@@ -50,10 +50,29 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('username', 'email', 'first_name', 'last_name', 'location', 'birth_date', 'bio')
+        fields = ('username',
+                  'email',
+                  'first_name',
+                  'last_name',
+                  'profile_picture',
+                  'location',
+                  'birth_date',
+                  'bio',
+                  'facebook_url',
+                  'twitter_url',
+                  'github_url',
+                  'instagram_url',
+                  'linkedin_url',
+                  )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['location'].widget.attrs['class'] = 'form-control'
         self.fields['birth_date'].widget.attrs['class'] = 'form-control'
         self.fields['bio'].widget.attrs['class'] = 'form-control'
+        self.fields['profile_picture'].widget.attrs['class'] = 'form-control'
+        self.fields['facebook_url'].widget.attrs['class'] = 'form-control'
+        self.fields['twitter_url'].widget.attrs['class'] = 'form-control'
+        self.fields['github_url'].widget.attrs['class'] = 'form-control'
+        self.fields['instagram_url'].widget.attrs['class'] = 'form-control'
+        self.fields['linkedin_url'].widget.attrs['class'] = 'form-control'

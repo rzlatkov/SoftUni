@@ -111,12 +111,14 @@ class UpdateProfileView(UpdateView):
 
     def post(self, request, *args, **kwargs):
         data = request.POST
+
         user = request.user
         user.username = data['username']
         user.email = data['email']
         user.first_name = data['first_name']
         user.last_name = data['last_name']
         user.save()
+
         return super().post(request, *args, **kwargs)
 
     # def form_valid(self, form):

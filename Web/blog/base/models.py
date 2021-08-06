@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save, pre_save
@@ -7,6 +9,8 @@ from django.core.validators import RegexValidator
 from ckeditor.fields import RichTextField
 # slugify turns our post title into a slug
 from django.utils.text import slugify
+
+from blog import settings
 
 
 class Category(models.Model):
@@ -95,14 +99,22 @@ class Comment(models.Model):
 class Profile(models.Model):
     # CASCADE deletes the reference object.
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_picture = models.ImageField(null=True, blank=True, upload_to='profile/images/')
     location = models.CharField(max_length=50, blank=True)
     birth_date = models.DateField(null=True, blank=True)
-
     bio = models.TextField(blank=True)
+    # URLfield = Charfield + URLvalidator
+    facebook_url = models.URLField(max_length=255, null=True, blank=True)
+    linkedin_url = models.URLField(max_length=255, null=True, blank=True)
+    instagram_url = models.URLField(max_length=255, null=True, blank=True)
+    twitter_url = models.URLField(max_length=255, null=True, blank=True)
+    github_url = models.URLField(max_length=255, null=True, blank=True)
 
-    # TODO:
-    # profile_picture
-    # facebook/insta/tweeter/Github urls required=False
+    def get_profile_picture(self):
+        if self.profile_picture:
+            return self.profile_picture.url
+        directory = os.path.join(settings.MEDIA_URL, 'profile/images/default.jpg')
+        return directory
 
     def __str__(self):
         return self.user.username

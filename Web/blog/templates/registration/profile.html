@@ -1,10 +1,16 @@
 {% extends 'base/base.html' %}
 
+{% load static %}
+
 {% block title %}
     Profile
 {% endblock %}
 
 {% block content %}
+
+    <img src="{{ profile.get_profile_picture }}" width=200 height=200 class="rounded-circle">
+    <hr>
+
     Username: {{ profile.user.username }}
     <hr>
     Email: {{ profile.user.email }}
@@ -18,6 +24,15 @@
     Bio: {{ profile.bio }}
     <hr>
 
+    {% if profile.facebook_url %}
+    <a href="{{ profile.facebook_url }}" class="bi bi-facebook" style="font-size: 2rem; color: dodgerblue"></a>
+    {% else %}
+    <a href="" class="bi bi-facebook" style="font-size: 2rem; color: dodgerblue"></a>
+    {% endif %}
+    <a href="{{ profile.twitter_url }}" class="bi bi-twitter" style="font-size: 2rem; color: deepskyblue"></a>
+    <a href="{{ profile.github_url }}" class="bi bi-github" style="font-size: 2rem; color: black"></a>
+    <a href="{{ profile.instagram_url }}" class="bi bi-instagram" style="font-size: 2rem; color: orangered"></a>
+    <a href="{{ profile.linkedin_url }}" class="bi bi-linkedin" style="font-size: 2rem; color: dodgerblue"></a>
 
     <br><br><a href="{% url 'home' %}" class="btn btn-secondary">Go to Home</a>
     <a href="{% url 'profile-edit' user.pk %}" class="btn btn-warning">Edit Profile</a>

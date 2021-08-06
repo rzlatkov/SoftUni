@@ -57,6 +57,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -112,6 +113,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # just a prefix/namespace for STATIC_ROOT to how the static contents can be accessed.
 STATIC_URL = '/static/'
+
+# prefix/namespace for MEDIA_ROOT to how the media contents can be accessed.
+MEDIA_URL = '/media/'
+
+# directory where all file/imagefields will be stored. Works only in dev mode.
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # 'python manage.py collectstatic' command collects the static content of each app
