@@ -1,11 +1,24 @@
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404
+from django.urls import reverse_lazy
 from django.views.generic import DetailView, UpdateView
 from base.models import Profile
-from .forms import CreateUserForm, LoginUserForm, PasswordChangeFormBootstrap
+from .forms import (
+    CreateUserForm,
+    LoginUserForm,
+    PasswordChangeFormBootstrap,
+    PasswordSetFormBootstrap,
+    PasswordResetFormBootstrap,
+)
 from base.forms import ProfileForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout, update_session_auth_hash
+from django.contrib.auth.views import (
+    PasswordResetView,
+    PasswordResetDoneView,
+    PasswordResetConfirmView,
+    PasswordResetCompleteView,
+)
 # from django.contrib.auth.forms import PasswordChangeForm
 
 
@@ -127,3 +140,23 @@ class UpdateProfileView(UpdateView):
     #     self.object.username = self.request.user.username
     #     return super().form_valid(form)
 
+
+class CustomPasswordResetView(PasswordResetView):
+    template_name = 'registration/password_reset.html'
+    form_class = PasswordResetFormBootstrap
+
+
+class CustomPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'registration/password_reset_done.html'
+
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'registration/password_reset_confirm.html'
+    form_class = PasswordSetFormBootstrap
+    # post_reset_login = True
+    # success_url = reverse_lazy('home')
+
+
+class CustomPasswordResetCompleteView(PasswordResetCompleteView):
+    template_name = 'registration/password_reset_complete.html'
+    # success_url = reverse_lazy('home')

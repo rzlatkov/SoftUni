@@ -1,6 +1,13 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
+from django.contrib.auth.forms import (
+    UserCreationForm,
+    AuthenticationForm,
+    PasswordChangeForm,
+    PasswordResetForm,
+    SetPasswordForm,
+)
 from django.contrib.auth.models import User
+from .mixins import PasswordFormMixin
 
 
 class CreateUserForm(UserCreationForm):
@@ -35,12 +42,23 @@ class LoginUserForm(AuthenticationForm):
         self.fields['password'].widget.attrs['class'] = 'form-control'
 
 
-class PasswordChangeFormBootstrap(PasswordChangeForm):
-    # class Meta:
-    #     model = User
+# class PasswordChangeFormBootstrap(PasswordChangeForm):
+#     # class Meta:
+#     #     model = User
+#
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.fields['old_password'].widget.attrs['class'] = 'form-control'
+#         self.fields['new_password1'].widget.attrs['class'] = 'form-control'
+#         self.fields['new_password2'].widget.attrs['class'] = 'form-control'
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['old_password'].widget.attrs['class'] = 'form-control'
-        self.fields['new_password1'].widget.attrs['class'] = 'form-control'
-        self.fields['new_password2'].widget.attrs['class'] = 'form-control'
+class PasswordChangeFormBootstrap(PasswordFormMixin, PasswordChangeForm):
+    pass
+
+
+class PasswordResetFormBootstrap(PasswordFormMixin, PasswordResetForm):
+    pass
+
+
+class PasswordSetFormBootstrap(PasswordFormMixin, SetPasswordForm):
+    pass

@@ -15,7 +15,9 @@
       <br>
     <button class="btn btn-primary" type="submit">Login</button>
   </form>
-  <p class="text-center">Don't have an account? <a href="{% url 'register' %}">Create an account</a>.</p>
+  <p class="text-center">Don't have an account? <a href="{% url 'register' %}">Create an account.</a></p>
+{#    <br>#}
+    <p class="text-center"><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
 </div>
 
 {% endblock %}
