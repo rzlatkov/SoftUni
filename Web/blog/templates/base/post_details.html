@@ -6,14 +6,19 @@
 
 {% block content %}
     <h1>Title: {{ post.title }}</h1>
-    <small>Author: {{ post.author.username }}</small>
+    <img src="{{ post.author.profile.get_profile_picture }}" width=50 height=50 class="rounded-circle">
+    <strong>Author:</strong> <a href="{% url 'profile' post.author.pk %}">{{ post.author.username }}</a>
     <hr>
-    <br/>
     {{ post.content|safe }}
     <br/>
     <br/>
-
-    <br><br><a href="{% url 'home' %}" class="btn btn-secondary">Go to Home</a>
+    <hr>
+    Categories:
+    {% for cat in post.category.all %}
+        <a href="{% url 'category-detail' cat.name|slugify %}">{{ cat.name }}/</a>
+    {% endfor %}
+    <hr>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Go to Home</a>
     {% if user.is_authenticated %}
     <a href="{% url 'post-edit' post.pk %}" class="btn btn-warning">Edit</a>
     <a href="{% url 'post-delete' post.pk %}" class="btn btn-danger">Delete</a>
@@ -46,17 +51,17 @@
     {% else %}
         {% for comment in post.comments.all %}
             <strong>
-                <br>
-                From: {{ comment.name }}
-                <br>
+                <img src="{{ comment.author.profile.get_profile_picture }}" width=50 height=50 class="rounded-circle">
+                <a href="{% url 'profile' comment.author.pk %}">{{ comment.name }}</a>
+            <br>
+            </strong>
                 <small>
                 Published: {{ comment.date_published }}
                 Modified: {{ comment.date_modified }}
                 </small>
-            </strong>
-            <br>
-            {{ comment.content }}
-            <br>
+            <hr>
+            <li><strong>{{ comment.content }}</strong></li>
+            <hr>
         {% endfor %}
     {% endif %}
 {% endblock %}

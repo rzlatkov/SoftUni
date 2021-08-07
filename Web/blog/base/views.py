@@ -6,6 +6,7 @@ from .forms import (PostForm,
                     CommentForm,
                     )
 from django.urls import reverse_lazy
+from django.db.models import Q
 
 
 def post_like_view(request, pk):
@@ -64,6 +65,14 @@ class CategoryListView(ListView):
     template_name = 'base/categories.html'
     ordering = ('name',)
 
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            result = self.model.objects.filter(Q(name__icontains=query))
+        else:
+            result = self.model.objects.all()
+        return result
+
 
 class HomeView(ListView):
     model = Post
@@ -71,6 +80,18 @@ class HomeView(ListView):
     ordering = ('date_published',)
     # default context obj name = objects_list
     # context_object_name = 'posts'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            result = self.model.objects.filter(
+                Q(title__icontains=query) |
+                Q(category__name__icontains=query) |
+                Q(author__username__icontains=query)
+            )
+        else:
+            result = self.model.objects.all()
+        return result
 
 
 class PostView(DetailView):

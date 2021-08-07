@@ -4,6 +4,13 @@
     Categories
 {% endblock %}
 
+{% block search %}
+    <form method='GET' class="d-flex">
+    <input class="form-control me-2" type="search" name="q" value='{{ request.GET.q }}' placeholder="Search category" aria-label="Search">
+    <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+{% endblock %}
+
 {% block content %}
     <h1>Categories
         {% if user.is_authenticated %}

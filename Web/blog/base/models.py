@@ -1,5 +1,4 @@
 import os
-
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save, pre_save
@@ -8,7 +7,7 @@ from django.urls import reverse
 from django.core.validators import RegexValidator
 from ckeditor.fields import RichTextField
 # slugify turns our post title into a slug
-from django.utils.text import slugify
+# from django.utils.text import slugify
 
 from blog import settings
 

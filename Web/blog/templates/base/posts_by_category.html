@@ -6,19 +6,24 @@
 
 {% block content %}
     <h1>Posts related to {{ cat }}</h1>
+    <hr>
     {% if posts_by_cat %}
     <ul>
         {% for post in posts_by_cat %}
-            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> - {{ post.author.username }} - {{ post.author.email }}</li>
+            <img src="{{ post.author.profile.get_profile_picture }}" width=50 height=50 class="rounded-circle">
+            <strong>Author:</strong> <a href="{% url 'profile' post.author.pk %}">{{ post.author.username }}</a>
+            <hr>
+
+            <li><strong>Title:</strong> <a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
             {{ post.snippet }}
             <br>
-            Categories:
+            <strong>Categories:</strong>
             {% for cat in post.category.all %}
-                {{ cat }}/
+                <a href="{% url 'category-detail' cat.name|slugify %}">{{ cat.name }}/</a>
             {% endfor %}
             <br>
-            Date published: {{ post.date_published }}
-            <hr>
+            <strong>Date published:</strong> {{ post.date_published }}
+            <br><br>
         {% endfor %}
     </ul>
     {% else %}

@@ -1,34 +1,42 @@
 {% extends 'base/base.html' %}
 
-{% load static %}
-
 {% block title %}
     Home
 {% endblock %}
 
+{% block search %}
+    <form method='GET' class="d-flex">
+    <input class="form-control me-2" type="search" name="q" value='{{ request.GET.q }}' placeholder="Search post" aria-label="Search">
+    <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+{% endblock %}
+
 {% block content %}
     <h1>Posts</h1>
-
+    <hr>
     <ul>
         {% for post in object_list %}
-            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> - {{ post.author.username }} - {{ post.author.email }}</li>
+            <img src="{{ post.author.profile.get_profile_picture }}" width=50 height=50 class="rounded-circle">
+            <strong>Author:</strong> <a href="{% url 'profile' post.author.pk %}">{{ post.author.username }}</a>
+            <hr>
+
+            <li><strong>Title:</strong> <a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
             {{ post.snippet }}
             <br>
-            Categories:
+            <strong>Categories:</strong>
             {% for cat in post.category.all %}
                 <a href="{% url 'category-detail' cat.name|slugify %}">{{ cat.name }}/</a>
             {% endfor %}
             <br>
-            Date published: {{ post.date_published }}
+            <strong>Date published:</strong> {{ post.date_published }}
 
             {% if user.is_authenticated %}
-
-            <a href="{% url 'post-edit' post.pk %}">Edit</a>
-            <a href="{% url 'post-delete' post.pk %}">Delete</a>
+            <br>
+            <a href="{% url 'post-edit' post.pk %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'post-delete' post.pk %}" class="btn btn-danger">Delete</a>
 
             {% endif %}
-            <hr>
+        <br><br>
         {% endfor %}
     </ul>
 {% endblock %}
-
