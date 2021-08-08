@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block content %}
-    {% if user.is_authenticated %}
     <h1>Edit Post: {{ post.title }}?</h1>
     <br>
     <form method="POST">
@@ -16,7 +15,4 @@
             <button class="btn btn-success">Update</button>
         </div>
     </form>
-    {% else %}
-    You are not logged in. You don't have the permissions to edit a post.
-    {% endif %}
 {% endblock %}

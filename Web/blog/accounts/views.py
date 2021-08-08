@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse_lazy
@@ -30,8 +32,11 @@ def register_view(request):
             login(request, user)
             messages.success(request, "Successful registration.")
             return redirect('home')
-        messages.error(request, "Unsuccessful registration.")
-    form = CreateUserForm()
+        else:
+            for error in form.errors.as_data():
+                messages.error(request, form.errors[error])
+    else:
+        form = CreateUserForm()
     context = {'form': form}
     return render(request, 'registration/register.html', context)
 
@@ -58,12 +63,14 @@ def login_view(request):
     return render(request, 'registration/login.html', context)
 
 
+@login_required()
 def logout_view(request):
     logout(request)
     messages.info(request, 'You are logged out.')
     return redirect('home')
 
 
+@login_required()
 def change_password_view(request):
     if request.method == "POST":
         form = PasswordChangeFormBootstrap(request.user, request.POST)
@@ -83,7 +90,7 @@ def change_password_view(request):
     return render(request, 'registration/change_password.html', context)
 
 
-class ProfileView(DetailView):
+class ProfileView(LoginRequiredMixin, DetailView):
     model = Profile
     template_name = 'registration/profile.html'
     # context obj name defaults to the lowercased version of the model name
@@ -103,7 +110,7 @@ class ProfileView(DetailView):
     #     return context
 
 
-class UpdateProfileView(UpdateView):
+class UpdateProfileView(LoginRequiredMixin, UpdateView):
     model = Profile
     form_class = ProfileForm
     template_name = 'registration/edit_profile.html'

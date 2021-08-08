@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Category
@@ -7,8 +9,10 @@ from .forms import (PostForm,
                     )
 from django.urls import reverse_lazy
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 
+@login_required()
 def post_like_view(request, pk):
     # pk == post.id
     post = get_object_or_404(Post, pk=pk)
@@ -24,6 +28,7 @@ def post_like_view(request, pk):
     return redirect('post-detail', pk)
 
 
+@login_required()
 def comment_add_view(request, pk):
     if request.method == "POST":
         form = CommentForm(request.POST)
@@ -43,10 +48,16 @@ def comment_add_view(request, pk):
 def category_detail_view(request, cat):
     cat = cat.capitalize().replace('-', ' ')
     posts_by_cat = Post.objects.filter(category__name=cat)
-    context = {'posts_by_cat': posts_by_cat, 'cat': cat}
+
+    paginator = Paginator(posts_by_cat, 10)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
+
+    context = {'posts_by_cat': posts, 'cat': cat}
     return render(request, 'base/posts_by_category.html', context)
 
 
+@login_required()
 def category_add_view(request):
     if request.method == "POST":
         form = CategoryForm(request.POST)
@@ -64,6 +75,7 @@ class CategoryListView(ListView):
     model = Category
     template_name = 'base/categories.html'
     ordering = ('name',)
+    paginate_by = 10
 
     def get_queryset(self):
         query = self.request.GET.get('q')
@@ -78,6 +90,7 @@ class HomeView(ListView):
     model = Post
     template_name = 'base/home.html'
     ordering = ('date_published',)
+    paginate_by = 10
     # default context obj name = objects_list
     # context_object_name = 'posts'
 
@@ -114,7 +127,7 @@ class PostView(DetailView):
         return context
 
 
-class AddPostView(CreateView):
+class AddPostView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
     template_name = 'base/add_post.html'
@@ -124,13 +137,13 @@ class AddPostView(CreateView):
         return super().form_valid(form)
 
 
-class UpdatePostView(UpdateView):
+class UpdatePostView(LoginRequiredMixin, UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'base/edit_post.html'
 
 
-class DeletePostView(DeleteView):
+class DeletePostView(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = reverse_lazy('home')
     template_name = 'base/delete_post.html'
