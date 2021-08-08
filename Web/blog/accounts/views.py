@@ -1,8 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
-from django.shortcuts import redirect, render, get_object_or_404
-from django.urls import reverse_lazy
+from django.shortcuts import redirect, render
 from django.views.generic import DetailView, UpdateView
 from base.models import Profile
 from .forms import (
@@ -21,9 +19,10 @@ from django.contrib.auth.views import (
     PasswordResetConfirmView,
     PasswordResetCompleteView,
 )
-# from django.contrib.auth.forms import PasswordChangeForm
+from .decorators import logged_out_required
 
 
+@logged_out_required
 def register_view(request):
     if request.method == "POST":
         form = CreateUserForm(request.POST)
@@ -41,9 +40,9 @@ def register_view(request):
     return render(request, 'registration/register.html', context)
 
 
+@logged_out_required
 def login_view(request):
     if request.method == "POST":
-        # form = AuthenticationForm(request, request.POST)
         form = LoginUserForm(request, request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
@@ -57,7 +56,6 @@ def login_view(request):
                 messages.error(request, 'Invalid username or password.')
         else:
             messages.error(request, 'Invalid username or password.')
-    # form = AuthenticationForm()
     form = LoginUserForm()
     context = {'form': form}
     return render(request, 'registration/login.html', context)
@@ -93,21 +91,6 @@ def change_password_view(request):
 class ProfileView(LoginRequiredMixin, DetailView):
     model = Profile
     template_name = 'registration/profile.html'
-    # context obj name defaults to the lowercased version of the model name
-
-    # # inherit get_context_data() from superclass and extend it:
-    # def get_context_data(self, **kwargs):
-    #     post = get_object_or_404(Post, id=self.kwargs['pk'])
-    #     # call base implementation to get context data
-    #     context = super().get_context_data(**kwargs)
-    #
-    #     liked = False
-    #     if post.likes.filter(id=self.request.user.id).exists():
-    #         liked = True
-    #     # add variable to context data
-    #     context['likes'] = post.likes_count()
-    #     context['liked'] = liked
-    #     return context
 
 
 class UpdateProfileView(LoginRequiredMixin, UpdateView):
@@ -124,28 +107,18 @@ class UpdateProfileView(LoginRequiredMixin, UpdateView):
 
         return initial
 
-    # def get_context_data(self, **kwargs):
-    #     data = super().get_context_data(**kwargs)
-    #     data['username'] = self.request.user.username
-    #     return data
+    def form_valid(self, form):
+        data = self.request.POST
+        user = self.request.user
 
-    def post(self, request, *args, **kwargs):
-        data = request.POST
-
-        user = request.user
         user.username = data['username']
         user.email = data['email']
-        user.first_name = data['first_name']
-        user.last_name = data['last_name']
+        user.first_name = data['first_name'].lower().capitalize()
+        user.last_name = data['last_name'].lower().capitalize()
         user.save()
 
-        return super().post(request, *args, **kwargs)
-
-    # def form_valid(self, form):
-    #     # form.instance.username = self.request.user.username
-    #     self.object = form.save(commit=False)
-    #     self.object.username = self.request.user.username
-    #     return super().form_valid(form)
+        self.object = form.save()
+        return super().form_valid(form)
 
 
 class CustomPasswordResetView(PasswordResetView):
@@ -160,10 +133,7 @@ class CustomPasswordResetDoneView(PasswordResetDoneView):
 class CustomPasswordResetConfirmView(PasswordResetConfirmView):
     template_name = 'registration/password_reset_confirm.html'
     form_class = PasswordSetFormBootstrap
-    # post_reset_login = True
-    # success_url = reverse_lazy('home')
 
 
 class CustomPasswordResetCompleteView(PasswordResetCompleteView):
     template_name = 'registration/password_reset_complete.html'
-    # success_url = reverse_lazy('home')

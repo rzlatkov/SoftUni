@@ -13,7 +13,7 @@
 
 {% block content %}
 <h1>Categories
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and user.is_staff %}
     <small><a href="{% url 'category-add' %}" class="btn btn-success">Click here to add.</a></small>
     {% endif %}
 <hr>

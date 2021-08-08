@@ -1,5 +1,7 @@
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Category
@@ -49,7 +51,7 @@ def category_detail_view(request, cat):
     cat = cat.capitalize().replace('-', ' ')
     posts_by_cat = Post.objects.filter(category__name=cat)
 
-    paginator = Paginator(posts_by_cat, 10)
+    paginator = Paginator(posts_by_cat, 1)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
 
@@ -58,6 +60,7 @@ def category_detail_view(request, cat):
 
 
 @login_required()
+@staff_member_required()
 def category_add_view(request):
     if request.method == "POST":
         form = CategoryForm(request.POST)
@@ -74,8 +77,7 @@ def category_add_view(request):
 class CategoryListView(ListView):
     model = Category
     template_name = 'base/categories.html'
-    ordering = ('name',)
-    paginate_by = 10
+    paginate_by = 2
 
     def get_queryset(self):
         query = self.request.GET.get('q')
@@ -89,10 +91,7 @@ class CategoryListView(ListView):
 class HomeView(ListView):
     model = Post
     template_name = 'base/home.html'
-    ordering = ('date_published',)
     paginate_by = 10
-    # default context obj name = objects_list
-    # context_object_name = 'posts'
 
     def get_queryset(self):
         query = self.request.GET.get('q')
@@ -142,9 +141,21 @@ class UpdatePostView(LoginRequiredMixin, UpdateView):
     form_class = PostForm
     template_name = 'base/edit_post.html'
 
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object.author.pk != self.request.user.pk:
+            return HttpResponseForbidden('You cannot edit/delete other users content.')
+        return super().post(request, *args, **kwargs)
+
 
 class DeletePostView(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = reverse_lazy('home')
     template_name = 'base/delete_post.html'
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object.author.pk != self.request.user.pk:
+            return HttpResponseForbidden('You cannot edit/delete other users content.')
+        return super().post(request, *args, **kwargs)
 

@@ -1,4 +1,6 @@
 from pathlib import Path
+
+import storages.backends.s3boto3
 from django.contrib.messages import constants as messages
 import os
 import environ
@@ -38,6 +40,8 @@ INSTALLED_APPS = [
     'base',
     'accounts',
     'ckeditor',
+    # 'ckeditor_uploader',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -120,6 +124,7 @@ USE_TZ = True
 # just a prefix/namespace for STATIC_ROOT to how the static contents can be accessed.
 STATIC_URL = '/static/'
 
+
 # prefix/namespace for MEDIA_ROOT to how the media contents can be accessed.
 MEDIA_URL = '/media/'
 
@@ -129,7 +134,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # 'python manage.py collectstatic' command collects the static content of each app
 # + the static content from STATICFILES_DIRS (if such DIRS are specified) and stores it in STATIC_ROOT.
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # tells django where to look other than static folder in each app.
@@ -160,3 +165,14 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'nozzller@gmail.com'
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# # AWS S3 BUCKETS CONFIG
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

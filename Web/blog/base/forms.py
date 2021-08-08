@@ -1,8 +1,11 @@
 from django import forms
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
-
 from .models import Post, Category, Comment, Profile
+from django.core.validators import RegexValidator, MinLengthValidator
+
+first_last_name_len = MinLengthValidator(3, 'Minimum length of 3 letters required.')
+letters_n_whitespaces = RegexValidator(r'^[a-zA-Z ]*$', 'Only alphabet and whitespace characters are allowed.')
+
+alphanumeric = RegexValidator(r'^[0-9a-zA-Z ]*$', 'Only alphanumeric and whitespace characters are allowed.')
 
 
 class PostForm(forms.ModelForm):
@@ -43,10 +46,13 @@ class CommentForm(forms.ModelForm):
 
 
 class ProfileForm(forms.ModelForm):
-    username = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    username = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}),
+                               validators=[alphanumeric])
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
-    first_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    last_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    first_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}),
+                                 validators=[first_last_name_len, letters_n_whitespaces])
+    last_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}),
+                                validators=[first_last_name_len, letters_n_whitespaces])
 
     class Meta:
         model = Profile
