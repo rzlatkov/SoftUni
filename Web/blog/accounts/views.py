@@ -54,9 +54,11 @@ def login_view(request):
                 return redirect('home')
             else:
                 messages.error(request, 'Invalid username or password.')
-        else:
-            messages.error(request, 'Invalid username or password.')
-    form = LoginUserForm()
+        # else:
+        #     messages.error(request, 'Invalid username or password.')
+    else:
+        form = LoginUserForm()
+
     context = {'form': form}
     return render(request, 'registration/login.html', context)
 
@@ -91,6 +93,7 @@ def change_password_view(request):
 class ProfileView(LoginRequiredMixin, DetailView):
     model = Profile
     template_name = 'registration/profile.html'
+    # default context obj name = profile
 
 
 class UpdateProfileView(LoginRequiredMixin, UpdateView):
