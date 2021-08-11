@@ -3,14 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="41558cc9-9eb0-4a91-8d9f-f97dbf2947aa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/mixins.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/mixins.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/migrations/0002_alter_post_options.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/migrations/0003_alter_post_options.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/migrations/0004_alter_category_options.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/post_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/post_details.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -56,8 +57,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
-  <component name="RunManager" selected="Django tests.Test: accounts.tests">
-    <configuration name="Test: accounts.tests" type="DjangoTestsConfigurationType" temporary="true">
+  <component name="RunManager" selected="Django tests.Test: tests.accounts">
+    <configuration name="Test: tests" type="DjangoTestsConfigurationType" temporary="true">
       <module name="blog" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -70,14 +71,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="accounts.tests" />
+      <option name="TARGET" value="tests" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: accounts.tests.TestChangePasswordView" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: tests.accounts" type="DjangoTestsConfigurationType" temporary="true">
       <module name="blog" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -90,14 +91,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="accounts.tests.TestChangePasswordView" />
+      <option name="TARGET" value="tests.accounts" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: accounts.tests.TestChangePasswordView.test_not_logged_in" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: tests.accounts.forms" type="DjangoTestsConfigurationType" temporary="true">
       <module name="blog" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -110,14 +111,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="accounts.tests.TestChangePasswordView.test_not_logged_in" />
+      <option name="TARGET" value="tests.accounts.forms" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: accounts.tests.TestChangePasswordView.test_post_invalid" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: tests.accounts.forms.login_form" type="DjangoTestsConfigurationType" temporary="true">
       <module name="blog" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -130,14 +131,14 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="accounts.tests.TestChangePasswordView.test_post_invalid" />
+      <option name="TARGET" value="tests.accounts.forms.login_form" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test: accounts.tests.TestChangePasswordView.test_post_valid" type="DjangoTestsConfigurationType" temporary="true">
+    <configuration name="Test: tests.accounts.views.profile_details_view.ProfileDetailsTest" type="DjangoTestsConfigurationType" temporary="true">
       <module name="blog" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -150,7 +151,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="accounts.tests.TestChangePasswordView.test_post_valid" />
+      <option name="TARGET" value="tests.accounts.views.profile_details_view.ProfileDetailsTest" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
@@ -183,11 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Django tests.Test: accounts.tests" />
-        <item itemvalue="Django tests.Test: accounts.tests.TestChangePasswordView.test_not_logged_in" />
-        <item itemvalue="Django tests.Test: accounts.tests.TestChangePasswordView" />
-        <item itemvalue="Django tests.Test: accounts.tests.TestChangePasswordView.test_post_invalid" />
-        <item itemvalue="Django tests.Test: accounts.tests.TestChangePasswordView.test_post_valid" />
+        <item itemvalue="Django tests.Test: tests.accounts" />
+        <item itemvalue="Django tests.Test: tests.accounts.forms.login_form" />
+        <item itemvalue="Django tests.Test: tests.accounts.forms" />
+        <item itemvalue="Django tests.Test: tests" />
+        <item itemvalue="Django tests.Test: tests.accounts.views.profile_details_view.ProfileDetailsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -204,7 +205,10 @@
       <workItem from="1628111654061" duration="46067000" />
       <workItem from="1628288713673" duration="50013000" />
       <workItem from="1628435085557" duration="259000" />
-      <workItem from="1628435352815" duration="45489000" />
+      <workItem from="1628435352815" duration="46519000" />
+      <workItem from="1628542484632" duration="2285000" />
+      <workItem from="1628544781052" duration="1448000" />
+      <workItem from="1628699301666" duration="10685000" />
     </task>
     <servers />
   </component>
@@ -228,43 +232,56 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterForm_test_invalid_email.coverage" NAME="Test: accounts.tests.TestRegisterForm.test_invalid_email Coverage Results" MODIFIED="1628523530630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginForm_test_invalid_password_credential.coverage" NAME="Test: accounts.tests.TestLoginForm.test_invalid_password_credential Coverage Results" MODIFIED="1628525381974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterForm_test_common_password.coverage" NAME="Test: accounts.tests.TestRegisterForm.test_common_password Coverage Results" MODIFIED="1628523287155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterForm_test_password_similar_to_email.coverage" NAME="Test: accounts.tests.TestRegisterForm.test_password_similar_to_email Coverage Results" MODIFIED="1628523344217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestChangePasswordView_test_post_invalid.coverage" NAME="Test: accounts.tests.TestChangePasswordView.test_post_invalid Coverage Results" MODIFIED="1628539859073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterForm_test_only_digits_password.coverage" NAME="Test: accounts.tests.TestRegisterForm.test_only_digits_password Coverage Results" MODIFIED="1628523451272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestChangePasswordView_test_post_valid.coverage" NAME="Test: accounts.tests.TestChangePasswordView.test_post_valid Coverage Results" MODIFIED="1628539672540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestChangePasswordView_test_not_logged_in.coverage" NAME="Test: accounts.tests.TestChangePasswordView.test_not_logged_in Coverage Results" MODIFIED="1628539919173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginForm_test_invalid_username_credential.coverage" NAME="Test: accounts.tests.TestLoginForm.test_invalid_username_credential Coverage Results" MODIFIED="1628525277971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLogoutView.coverage" NAME="Test: accounts.tests.TestLogoutView Coverage Results" MODIFIED="1628536915799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginView_test_post_valid.coverage" NAME="Test: accounts.tests.TestLoginView.test_post_valid Coverage Results" MODIFIED="1628535655526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginForm_test_empty_username_field.coverage" NAME="Test: accounts.tests.TestLoginForm.test_empty_username_field Coverage Results" MODIFIED="1628523868726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginForm_test_empty_form.coverage" NAME="Test: accounts.tests.TestLoginForm.test_empty_form Coverage Results" MODIFIED="1628523836732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestPasswordResetForm.coverage" NAME="Test: accounts.tests.TestPasswordResetForm Coverage Results" MODIFIED="1628527009033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_ProfileDetailsTest_test_get_when_logged_should_getProfileData.coverage" NAME="Test: accounts.tests.ProfileDetailsTest.test_get_when_logged_should_getProfileData Coverage Results" MODIFIED="1628529455156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginForm_test_valid_form.coverage" NAME="Test: accounts.tests.TestLoginForm.test_valid_form Coverage Results" MODIFIED="1628523768062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__base_tests_SampleTest.coverage" NAME="Test: base.tests.SampleTest Coverage Results" MODIFIED="1628459042922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_ProfileDetailsTest_test_get_when_logged_should_getNoProfileData.coverage" NAME="Test: accounts.tests.ProfileDetailsTest.test_get_when_logged_should_getNoProfileData Coverage Results" MODIFIED="1628529452619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests.coverage" NAME="Test: accounts.tests Coverage Results" MODIFIED="1628539923506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestPasswordChangeForm_test_different_newPasswords.coverage" NAME="Test: accounts.tests.TestPasswordChangeForm.test_different_newPasswords Coverage Results" MODIFIED="1628526927884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginView_test_post_invalid.coverage" NAME="Test: accounts.tests.TestLoginView.test_post_invalid Coverage Results" MODIFIED="1628535567682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterForm_test_short_password.coverage" NAME="Test: accounts.tests.TestRegisterForm.test_short_password Coverage Results" MODIFIED="1628523397747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginForm.coverage" NAME="Test: accounts.tests.TestLoginForm Coverage Results" MODIFIED="1628526432760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterView.coverage" NAME="Test: accounts.tests.TestRegisterView Coverage Results" MODIFIED="1628535267615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestPasswordChangeForm_test_invalid_oldPassword.coverage" NAME="Test: accounts.tests.TestPasswordChangeForm.test_invalid_oldPassword Coverage Results" MODIFIED="1628526899137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_ProfileDetailsTest_test_get_when_logged_should_get.coverage" NAME="Test: accounts.tests.ProfileDetailsTest.test_get_when_logged_should_get Coverage Results" MODIFIED="1628462248017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests_accounts_forms.coverage" NAME="Test: tests.accounts.forms Coverage Results" MODIFIED="1628543162736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests_accounts_views_logout_view_TestLogoutView.coverage" NAME="Test: tests.accounts.views.logout_view.TestLogoutView Coverage Results" MODIFIED="1628541285475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_ProfileDetailsTest.coverage" NAME="Test: accounts.tests.ProfileDetailsTest Coverage Results" MODIFIED="1628529711026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests.coverage" NAME="Test: tests Coverage Results" MODIFIED="1628543151337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestPasswordChangeForm_test_empty_form.coverage" NAME="Test: accounts.tests.TestPasswordChangeForm.test_empty_form Coverage Results" MODIFIED="1628526854559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLogoutView_test_not_logged_in.coverage" NAME="Test: accounts.tests.TestLogoutView.test_not_logged_in Coverage Results" MODIFIED="1628536726823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests_accounts_forms_register_form_TestRegisterForm.coverage" NAME="Test: tests.accounts.forms.register_form.TestRegisterForm Coverage Results" MODIFIED="1628541314422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterForm_test_valid_form.coverage" NAME="Test: accounts.tests.TestRegisterForm.test_valid_form Coverage Results" MODIFIED="1628522578451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests_accounts_views_register_view_TestRegisterView.coverage" NAME="Test: tests.accounts.views.register_view.TestRegisterView Coverage Results" MODIFIED="1628541295372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterView_test_get.coverage" NAME="Test: accounts.tests.TestRegisterView.test_get Coverage Results" MODIFIED="1628532925253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterForm_test_empty_form.coverage" NAME="Test: accounts.tests.TestRegisterForm.test_empty_form Coverage Results" MODIFIED="1628522700854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests_accounts_forms_login_form_TestLoginForm.coverage" NAME="Test: tests.accounts.forms.login_form.TestLoginForm Coverage Results" MODIFIED="1628541304038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests_accounts_views_profile_details_view_ProfileDetailsTest.coverage" NAME="Test: tests.accounts.views.profile_details_view.ProfileDetailsTest Coverage Results" MODIFIED="1628541330076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginForm_test_invalid_password_credential.coverage" NAME="Test: accounts.tests.TestLoginForm.test_invalid_password_credential Coverage Results" MODIFIED="1628525381974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterForm_test_common_password.coverage" NAME="Test: accounts.tests.TestRegisterForm.test_common_password Coverage Results" MODIFIED="1628523287155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestChangePasswordView_test_post_invalid.coverage" NAME="Test: accounts.tests.TestChangePasswordView.test_post_invalid Coverage Results" MODIFIED="1628539859073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestChangePasswordView_test_post_valid.coverage" NAME="Test: accounts.tests.TestChangePasswordView.test_post_valid Coverage Results" MODIFIED="1628539672540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestChangePasswordView_test_not_logged_in.coverage" NAME="Test: accounts.tests.TestChangePasswordView.test_not_logged_in Coverage Results" MODIFIED="1628539919173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLogoutView.coverage" NAME="Test: accounts.tests.TestLogoutView Coverage Results" MODIFIED="1628536915799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests_accounts.coverage" NAME="Test: tests.accounts Coverage Results" MODIFIED="1628546147462" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginForm_test_empty_username_field.coverage" NAME="Test: accounts.tests.TestLoginForm.test_empty_username_field Coverage Results" MODIFIED="1628523868726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginForm_test_empty_form.coverage" NAME="Test: accounts.tests.TestLoginForm.test_empty_form Coverage Results" MODIFIED="1628523836732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestPasswordResetForm.coverage" NAME="Test: accounts.tests.TestPasswordResetForm Coverage Results" MODIFIED="1628527009033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests_accounts_views_password_change_view_TestChangePasswordView.coverage" NAME="Test: tests.accounts.views.password_change_view.TestChangePasswordView Coverage Results" MODIFIED="1628541277578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginForm_test_valid_form.coverage" NAME="Test: accounts.tests.TestLoginForm.test_valid_form Coverage Results" MODIFIED="1628523768062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginView_test_post_invalid.coverage" NAME="Test: accounts.tests.TestLoginView.test_post_invalid Coverage Results" MODIFIED="1628535567682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterForm_test_short_password.coverage" NAME="Test: accounts.tests.TestRegisterForm.test_short_password Coverage Results" MODIFIED="1628523397747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLogoutView_test_logged_in.coverage" NAME="Test: accounts.tests.TestLogoutView.test_logged_in Coverage Results" MODIFIED="1628536910736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestChangePasswordView.coverage" NAME="Test: accounts.tests.TestChangePasswordView Coverage Results" MODIFIED="1628539909289" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginForm_test_inActive_account.coverage" NAME="Test: accounts.tests.TestLoginForm.test_inActive_account Coverage Results" MODIFIED="1628526643373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_ProfileDetailsTest_test_get_when_logged_should_get.coverage" NAME="Test: accounts.tests.ProfileDetailsTest.test_get_when_logged_should_get Coverage Results" MODIFIED="1628462248017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests_accounts_views_login_view_TestLoginView.coverage" NAME="Test: tests.accounts.views.login_view.TestLoginView Coverage Results" MODIFIED="1628541290257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests_accounts_forms_login_form.coverage" NAME="Test: tests.accounts.forms.login_form Coverage Results" MODIFIED="1628546081515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginView.coverage" NAME="Test: accounts.tests.TestLoginView Coverage Results" MODIFIED="1628535661641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterView_test_not_logged_out.coverage" NAME="Test: accounts.tests.TestRegisterView.test_not_logged_out Coverage Results" MODIFIED="1628532216693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterForm_test_different_passwords.coverage" NAME="Test: accounts.tests.TestRegisterForm.test_different_passwords Coverage Results" MODIFIED="1628523488527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_ProfileDetailsTest.coverage" NAME="Test: accounts.tests.ProfileDetailsTest Coverage Results" MODIFIED="1628529711026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestPasswordChangeForm_test_empty_form.coverage" NAME="Test: accounts.tests.TestPasswordChangeForm.test_empty_form Coverage Results" MODIFIED="1628526854559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLogoutView_test_not_logged_in.coverage" NAME="Test: accounts.tests.TestLogoutView.test_not_logged_in Coverage Results" MODIFIED="1628536726823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterForm_test_valid_form.coverage" NAME="Test: accounts.tests.TestRegisterForm.test_valid_form Coverage Results" MODIFIED="1628522578451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterView_test_get.coverage" NAME="Test: accounts.tests.TestRegisterView.test_get Coverage Results" MODIFIED="1628532925253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterForm_test_empty_form.coverage" NAME="Test: accounts.tests.TestRegisterForm.test_empty_form Coverage Results" MODIFIED="1628522700854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests_accounts_views_password_change_view.coverage" NAME="Test: tests.accounts.views.password_change_view Coverage Results" MODIFIED="1628541263178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/blog$Test__tests_accounts_forms_password_change_form_TestPasswordChangeForm.coverage" NAME="Test: tests.accounts.forms.password_change_form.TestPasswordChangeForm Coverage Results" MODIFIED="1628541298611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestPasswordChangeForm.coverage" NAME="Test: accounts.tests.TestPasswordChangeForm Coverage Results" MODIFIED="1628526860940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestLoginForm_test_empty_password_field.coverage" NAME="Test: accounts.tests.TestLoginForm.test_empty_password_field Coverage Results" MODIFIED="1628524630815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/blog$Test__accounts_tests_TestRegisterView_test_post_valid.coverage" NAME="Test: accounts.tests.TestRegisterView.test_post_valid Coverage Results" MODIFIED="1628534255770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

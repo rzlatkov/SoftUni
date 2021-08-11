@@ -4,11 +4,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, Category
+from .models import Post, Category, Comment
 from .forms import (PostForm,
                     CategoryForm,
-                    CommentForm,
-                    )
+                    CommentForm,)
 from django.urls import reverse_lazy
 from django.db.models import Q
 from django.core.paginator import Paginator
@@ -45,6 +44,39 @@ def comment_add_view(request, pk):
 
     context = {'form': form}
     return render(request, 'base/add_comment.html', context)
+
+
+@login_required()
+def comment_edit_view(request, pk):
+    comment = Comment.objects.get(pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment.name = form.cleaned_data['name']
+            comment.content = form.cleaned_data['content']
+            comment.save()
+            return redirect('post-detail', comment.post.pk)
+    else:
+        if comment.author.pk != request.user.pk:
+            return HttpResponseForbidden('You cannot edit/delete other users content.')
+        form = CommentForm(instance=comment)
+
+    context = {'form': form}
+    return render(request, 'base/edit_comment.html', context)
+
+
+@login_required()
+def comment_delete_view(request, pk):
+    comment = Comment.objects.get(pk=pk)
+    post = Post.objects.get(comments__pk=pk)
+    if request.method == "POST":
+        comment.delete()
+        return redirect('post-detail', post.pk)
+    else:
+        if comment.author.pk != request.user.pk:
+            return HttpResponseForbidden('You cannot edit/delete other users content.')
+    context = {'comment': comment}
+    return render(request, 'base/delete_comment.html', context)
 
 
 def category_detail_view(request, cat):

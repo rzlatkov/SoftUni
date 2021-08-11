@@ -9,6 +9,8 @@ from .views import (
     category_detail_view,
     category_add_view,
     comment_add_view,
+    comment_edit_view,
+    comment_delete_view,
     post_like_view,
     )
 
@@ -24,6 +26,6 @@ urlpatterns = [
     path('category/<str:cat>', category_detail_view, name='category-detail'),
     path('category/add/', category_add_view, name='category-add'),
     path('comment/add/<int:pk>', comment_add_view, name='comment-add'),
-    # path('comment/edit/<int:pk>', , name='comment-edit'),
-    # path('comment/delete/<int:pk>', , name='comment-delete'),
+    path('comment/edit/<int:pk>', comment_edit_view, name='comment-edit'),
+    path('comment/delete/<int:pk>', comment_delete_view, name='comment-delete'),
 ]

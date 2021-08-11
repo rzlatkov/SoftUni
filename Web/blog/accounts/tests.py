@@ -1,14 +1,8 @@
-# from django.contrib.auth import get_user_model
-from django.conf import settings
 from django.test import TestCase, Client
 from django.urls import reverse
-from django.contrib.auth.models import User
-from.forms import CreateUserForm, LoginUserForm, PasswordChangeFormBootstrap, PasswordResetFormBootstrap
 from django.contrib import auth
-from django.core import mail
-# get currently active user model.
-from base.models import Profile
-# UserModel = get_user_model()
+from django.contrib.auth.models import User
+from.forms import CreateUserForm, LoginUserForm, PasswordChangeFormBootstrap
 
 
 class ProfileDetailsTest(TestCase):
@@ -25,10 +19,6 @@ class ProfileDetailsTest(TestCase):
         self.user.save()
 
         response = self.client.get(reverse('profile', kwargs={'pk': self.user.pk}))
-        # profile = response.context['profile']
-        # profile.bio = 'asd'
-        # profile.location = 'sofia'
-        # profile.profile_picture = 'path/jordan.jpg'
 
         self.assertEqual(self.user.id, response.context['profile'].user.id)
         self.assertEqual('asd', response.context['profile'].bio)

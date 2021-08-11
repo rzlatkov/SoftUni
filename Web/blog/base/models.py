@@ -8,12 +8,8 @@ from django.core.validators import RegexValidator, MinLengthValidator, Validatio
 from ckeditor.fields import RichTextField
 from blog import settings
 from datetime import date
-
-category_n_title_min_len = MinLengthValidator(3, 'Minimum length of 3 letters required.')
-letters_n_whitespaces = RegexValidator(r'^[a-zA-Z ]*$', 'Only alphabet characters are allowed.')
-location_name_validator = RegexValidator(r'^[0-9a-zA-Z ,-]*$',
-                                         "Only alphanumeric, '-', ',' and whitespace characters are allowed.")
-location_len_validator = MinLengthValidator(15, 'Minimum length of 15 letters required.')
+from .validators import letters_n_whitespaces, \
+    category_n_title_min_len, location_len_validator, location_name_validator
 
 
 def no_present_nor_future(value):
@@ -63,7 +59,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    author = models.ForeignKey(User, related_name='comments', on_delete=models.PROTECT)
+    author = models.ForeignKey(User, related_name='comments', on_delete=models.CASCADE)
     name = models.CharField(max_length=100, validators=[letters_n_whitespaces, category_n_title_min_len])
     content = models.TextField()
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)

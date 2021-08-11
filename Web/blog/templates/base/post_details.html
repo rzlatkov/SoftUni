@@ -42,8 +42,7 @@
     <hr>
     Comments: <a href="{% url 'comment-add' post.pk %}" class="btn btn-success">Add</a>
     {% else %}
-    <br>
-    <br>
+    <br><br>
     <strong>Comments:</strong>
     <br>
     {% endif %}
@@ -64,6 +63,9 @@
             <hr>
             <li><strong>{{ comment.content }}</strong></li>
             <hr>
+            <a href="{% url 'comment-edit' comment.pk %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'comment-delete' comment.pk %}" class="btn btn-danger">Delete</a>
+            <br><br>
         {% endfor %}
     {% endif %}
 {% endblock %}
