@@ -81,9 +81,10 @@ def comment_delete_view(request, pk):
 
 def category_detail_view(request, cat):
     cat = cat.capitalize().replace('-', ' ')
+    qs = get_object_or_404(Category, name=cat)
     posts_by_cat = Post.objects.filter(category__name=cat)
 
-    paginator = Paginator(posts_by_cat, 1)
+    paginator = Paginator(posts_by_cat, 5)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
 

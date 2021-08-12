@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.urls import reverse
-from django.core.validators import RegexValidator, MinLengthValidator, ValidationError
+from django.core.validators import ValidationError
 from ckeditor.fields import RichTextField
 from blog import settings
 from datetime import date
@@ -28,6 +28,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    # def get_absolute_url(self):
+    #     return reverse('category-detail', args=[str(self.pk)])
 
 
 class Post(models.Model):

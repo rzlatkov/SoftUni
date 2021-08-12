@@ -111,5 +111,10 @@ The project is a small blogging application with some rudimentary features. Auth
   - Additional functionality, not explicitly described in this section, will be counted as a bonus if it has practical usage.
 
 ## Tests Coverage
+- Base app
 
+![img.png](img.png)
+- Accounts app
+
+![img_1.png](img_1.png)
 ## Demonstration
