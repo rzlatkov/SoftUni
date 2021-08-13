@@ -54,8 +54,8 @@ def login_view(request):
                 return redirect('home')
             else:
                 messages.error(request, 'Invalid username or password.')
-        # else:
-        #     messages.error(request, 'Invalid username or password.')
+        else:
+            messages.error(request, 'Invalid username or password.')
     else:
         form = LoginUserForm()
 
@@ -76,8 +76,8 @@ def change_password_view(request):
         form = PasswordChangeFormBootstrap(request.user, request.POST)
         if form.is_valid():
             user = form.save()
-            # update session hash is used to after save() so that user's session won't be invalidated.
-            # if invalidated, the user will be logged out upon pass change.
+            # update session hash is used after save() so that user's session won't be invalidated.
+            # if invalidated, the user will be logged out upon password change.
             update_session_auth_hash(request, user)
             messages.success(request, 'Password changed successfully!')
             return redirect('pass-change')
@@ -93,7 +93,6 @@ def change_password_view(request):
 class ProfileView(LoginRequiredMixin, DetailView):
     model = Profile
     template_name = 'registration/profile.html'
-    # default context obj name = profile
 
 
 class UpdateProfileView(LoginRequiredMixin, UpdateView):

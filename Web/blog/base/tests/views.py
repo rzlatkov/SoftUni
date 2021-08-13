@@ -2,7 +2,7 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from django.test import TestCase, Client
 from django.urls import reverse
-from .models import Post, Category, Comment
+from base.models import Post, Category, Comment
 
 
 class TestPostLikeView(TestCase):
@@ -273,7 +273,7 @@ class TestCategoryAddView(TestCase):
     def test_logged_in_staff_post_valid_form(self):
         self.client.force_login(self.user)
         data = {
-            'name': 'voodoo',
+            'name': 'Voodoo',
         }
         response = self.client.post(reverse('category-add'), data)
         status = response.status_code

@@ -22,7 +22,6 @@ def post_like_view(request, pk):
         # unlike
         post.likes.remove(request.user)
     else:
-        # add user validation here
         # like
         post.likes.add(request.user)
 
@@ -36,7 +35,8 @@ def comment_add_view(request, pk):
         if form.is_valid():
             new_comment = form.save(commit=False)
             new_comment.author = request.user
-            new_comment.post = Post.objects.get(pk=pk)
+            new_comment.post = get_object_or_404(Post, pk=pk)
+            # new_comment.post = Post.objects.get(pk=pk)
             new_comment.save()
             return redirect('post-detail', pk)
     else:
@@ -48,7 +48,8 @@ def comment_add_view(request, pk):
 
 @login_required()
 def comment_edit_view(request, pk):
-    comment = Comment.objects.get(pk=pk)
+    # comment = Comment.objects.get(pk=pk)
+    comment = get_object_or_404(Comment, pk=pk)
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -67,8 +68,10 @@ def comment_edit_view(request, pk):
 
 @login_required()
 def comment_delete_view(request, pk):
-    comment = Comment.objects.get(pk=pk)
-    post = Post.objects.get(comments__pk=pk)
+    # comment = Comment.objects.get(pk=pk)
+    comment = get_object_or_404(Comment, pk=pk)
+    # post = Post.objects.get(comments__pk=pk)
+    post = get_object_or_404(Post, comments__pk=pk)
     if request.method == "POST":
         comment.delete()
         return redirect('post-detail', post.pk)
@@ -84,7 +87,7 @@ def category_detail_view(request, cat):
     qs = get_object_or_404(Category, name=cat)
     posts_by_cat = Post.objects.filter(category__name=cat)
 
-    paginator = Paginator(posts_by_cat, 5)
+    paginator = Paginator(posts_by_cat, 2)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
 
@@ -124,7 +127,7 @@ class CategoryListView(ListView):
 class HomeView(ListView):
     model = Post
     template_name = 'base/home.html'
-    paginate_by = 10
+    paginate_by = 2
 
     def get_queryset(self):
         query = self.request.GET.get('q')
@@ -142,12 +145,9 @@ class HomeView(ListView):
 class PostView(DetailView):
     model = Post
     template_name = 'base/post_details.html'
-    # context obj name defaults to the lowercased version of the model name
 
-    # inherit get_context_data() from superclass and extend it:
     def get_context_data(self, **kwargs):
         post = get_object_or_404(Post, id=self.kwargs['pk'])
-        # call base implementation to get context data
         context = super().get_context_data(**kwargs)
 
         liked = False

@@ -4,22 +4,16 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.urls import reverse
-from django.core.validators import ValidationError
 from ckeditor.fields import RichTextField
 from blog import settings
-from datetime import date
 from .validators import letters_n_whitespaces, \
-    category_n_title_min_len, location_len_validator, location_name_validator
-
-
-def no_present_nor_future(value):
-    today = date.today()
-    if value >= today:
-        raise ValidationError('Date cannot be present or in the future.')
+    category_n_title_min_len, location_len_validator, location_name_validator, validate_capitalized, \
+    no_present_nor_future
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100, unique=True, validators=[letters_n_whitespaces, category_n_title_min_len])
+    name = models.CharField(max_length=100, unique=True, validators=[
+        letters_n_whitespaces, category_n_title_min_len, validate_capitalized])
 
     class Meta:
         verbose_name = 'Category'  # the name of the model class in the admin list section.
@@ -29,9 +23,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    # def get_absolute_url(self):
-    #     return reverse('category-detail', args=[str(self.pk)])
-
 
 class Post(models.Model):
     title = models.CharField(max_length=100, validators=[letters_n_whitespaces, category_n_title_min_len])
@@ -39,8 +30,6 @@ class Post(models.Model):
     # default reverse relationship by user.post_set
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = RichTextField(blank=True, null=True)
-    # auto_now_add sets the date when the post is created. It cannot be overridden.
-    # auto_now sets the date every time the obj is updated/saved. It cannot be overridden.
     date_published = models.DateTimeField(auto_now_add=True)
     category = models.ManyToManyField(Category, help_text='Select a category for this post.')
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
@@ -125,12 +114,15 @@ class Profile(models.Model):
         return reverse('profile', args=[str(self.pk)])
 
 
+# receiver is 'created_profile' func. instance is the User instance.
+# upon user creation and save (post_save) create profile object with the user instance.
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
 
 
+# save the profile object. Maybe unnecessary because create() calls save() also.
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):
     instance.profile.save()

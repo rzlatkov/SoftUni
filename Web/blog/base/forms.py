@@ -15,8 +15,8 @@ class CategoryForm(BootstrapifyFormMixin, forms.ModelForm):
         model = Category
         fields = ('name',)
 
-    def clean_name(self):
-        return self.cleaned_data['name'].lower().capitalize()
+    # def clean_name(self):
+    #     return self.cleaned_data['name'].lower().capitalize()
 
 
 class CommentForm(BootstrapifyFormMixin, forms.ModelForm):

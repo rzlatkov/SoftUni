@@ -4,16 +4,11 @@ from .models import Post, Profile, Category, Comment
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    # add additional fields/columns to the list view in admin page.
-    # the same names as specified in the model.
     list_display = ('title', 'author', 'date_published', 'get_category')
     list_filter = ('date_published', 'category')
     search_fields = ('title', 'category__name', 'author__username')
 
-    # exclude = ('slug',)
-    # readonly_fields = ('slug',)
-    # prepopulated_fields = {'slug': ('title',)}
-
+    # navigation
     date_hierarchy = 'date_published'
 
     # display up to three categories for a given post instance
@@ -22,6 +17,7 @@ class PostAdmin(admin.ModelAdmin):
         cats = ', '.join(cats)
         return cats
 
+    # the column name representation of the custom method above.
     get_category.short_description = 'Category'
 
 
@@ -46,9 +42,17 @@ class ProfileAdmin(admin.ModelAdmin):
     get_full_name.short_description = 'full name'
 
 
+# the admin interface has the ability to edit models on the same page as a parent model.
+class PostsInline(admin.TabularInline):
+    model = Post.category.through
+    extra = 0
+
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('name',)
+    ordering = ('name',)
+    inlines = [PostsInline]
 
 
 @admin.register(Comment)
